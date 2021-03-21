@@ -37,6 +37,7 @@ if [ -f "$archive" ] ; then
 		*.7z) 7z x "$archive" ;;
 		*.xz) unxz "$archive" ;;
 		*.exe) cabextract "$archive" ;;
+		*.zpaq) zpaq x "$archive" ;;
 		*) printf "extract: '%s' - unknown archive method\\n" "$archive" ;;
 	esac
 else

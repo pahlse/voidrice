@@ -1,13 +1,25 @@
 # You can add comments to these files with #
 cac ${XDG_CACHE_HOME:-$HOME/.cache}
 cf  ${XDG_CONFIG_HOME:-$HOME/.config}
-D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 dt  ${XDG_DATA_HOME:-$HOME/.local/share}
+
 h   $HOME
-m   ${XDG_MUSIC_DIR:-$HOME/Music}
+dd  ${XDG_DOWNLOAD_DIR:-$HOME/downloads}
+prv ${XDG_DOCUMENTS_DIR:-$HOME/docs/private}
+eth ${XDG_DOCUMENTS_DIR:-$HOME/docs/eth/6.semester}
+ag  ${XDG_DOCUMENTS_DIR:-$HOME/docs/eth/agora}
+ofc ${XDG_DOCUMENTS_DIR:-$HOME/docs/office}
+mm  ${XDG_MUSIC_DIR:-$HOME/audio/music}
+pd  ${XDG_MUSIC_DIR:-$HOME/audio/podcasts}
+ab  ${XDG_MUSIC_DIR:-$HOME/audio/abooks}
+pp  ${XDG_PICTURES_DIR:-$HOME/pics}
+vv  ${XDG_VIDEOS_DIR:-$HOME/videos}
+
 mn  /mnt
-pp  ${XDG_PICTURES_DIR:-$HOME/Pictures}
+hdd /mnt/hdd
+and /mnt/android
+usb /mnt/usb
+msh /mnt/ssh
+
 sc  $HOME/.local/bin
 src $HOME/.local/src
-vv  ${XDG_VIDEOS_DIR:-$HOME/Videos}

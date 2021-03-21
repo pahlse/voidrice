@@ -1,13 +1,14 @@
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-R6J6Y0.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+
 [Default Applications]
-
-# xdg-open will use these settings to determine how to open filetypes.
-# These .desktop entries can also be seen and changed in ~/.local/share/applications/
-
 text/x-shellscript=text.desktop;
 x-scheme-handler/magnet=torrent.desktop;
 application/x-bittorrent=torrent.desktop;
 x-scheme-handler/mailto=mail.desktop;
 text/plain=text.desktop;
+text/csv=text.desktop;
 application/postscript=pdf.desktop;
 application/pdf=pdf.desktop;
 image/png=img.desktop;
@@ -17,3 +18,15 @@ application/rss+xml=rss.desktop
 video/x-matroska=video.desktop
 x-scheme-handler/lbry=lbry.desktop
 inode/directory=file.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-R6J6Y0.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice.desktop
+application/msword=libreoffice.desktop
+application/vnd.oasis.opendocument.text=libreoffice.desktop
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice.desktop
+application/vnd.sun.xml.impress=libreoffice.desktop
+application/vnd.oasis.opendocument.presentation=libreoffice.desktop
+application/vnd.ms-powerpoint.presentation.macroEnabled.12=libreoffice.desktop
+application/vnd.ms-excel.sheet.macroEnabled.12=libreoffice.desktop
+application/vnd.oasis.opendocument.spreadsheet=libreoffice.desktop
+application/vnd.sun.xml.calc=libreoffice.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice.desktop

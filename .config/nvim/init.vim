@@ -8,14 +8,23 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'gaalcaras/ncm-R'
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-surround'
+Plug 'edthedev/vim-commentary'
+Plug 'lervag/vimtex'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'jreybert/vimagit'
 Plug 'lukesmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
-Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 call plug#end()
 
@@ -37,21 +46,75 @@ set noshowcmd
 	syntax on
 	set encoding=utf-8
 	set number relativenumber
+	set backspace=indent,eol,start
+	set smarttab
+	set autoindent
+	set si
+
 " Enable autocompletion:
 	set wildmode=longest,list,full
+
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " Perform dot commands over visual blocks:
 	vnoremap . :normal .<CR>
+
 " Goyo plugin makes text more readable when writing prose:
 	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
-" Spell-check set to <leader>o, 'o' for 'orthography':
-	map <leader>o :setlocal spell! spelllang=en_us<CR>
+
+" Spell-check:
+	map <leader>en :setlocal spell! spelllang=en_us<CR>
+	map <leader>de :setlocal spell! spelllang=de_ch<CR>
+
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-	set splitbelow splitright
+"	set splitbelow splitright
+
+" Tabs & Navigation
+	map <leader>nt :tabnew<cr>    	" To create a new tab.
+	map <leader>to :tabonly<cr>     " To close all other tabs (show only the current tab).
+	map <leader>tc :tabclose<cr>    " To close the current tab.
+	map <leader>tm :tabmove<cr>     " To move the current tab to next position.
+	map <leader>tj :tabn<cr>        " To swtich to next tab.
+	map <leader>tk :tabp<cr>        " To switch to previous tab.
+
+" NCM2
+autocmd BufEnter * call ncm2#enable_for_buffer()    " To enable ncm2 for all buffers.
+set completeopt=noinsert,menuone,noselect           " :help Ncm2PopupOpen for more information.
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#var('omni', 'input_patterns', {
+        \ 'tex': g:vimtex#re#deoplete
+        \})
+
+" Vimtex TOC settings
+	map <leader>t :VimtexTocOpen<CR>
+
+let g:vimtex_toc_config = {
+	\ 'name' : 'TOC',
+        \ 'layers' : ['content', 'todo', 'include'],
+        \ 'split_width' : 30,
+        \ 'todo_sorted' : 0,
+        \ 'show_help' : 1,
+        \ 'show_numbers' : 1,
+        \ 'tocdepth' : 2,
+        \}
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-h>"
+let g:UltiSnipsJumpBackwardTrigger="<c-l>"
+let g:UltiSnipsEditSplit="vertical"  " If you want :UltiSnipsEdit to split your window.
+
+" set spellcheck color
+	hi clear SpellBad
+	hi SpellBad cterm=underline ctermfg=red
 
 " Nerd tree
 	map <leader>n :NERDTreeToggle<CR>
+
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     if has('nvim')
         let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
@@ -97,7 +160,8 @@ set noshowcmd
 " Ensure files are read as what I want:
 	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 	map <leader>v :VimwikiIndex
-	let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+	map <leader>d :VimwikiDiaryIndex
+	let g:vimwiki_list = [{'path': '~/vimwiki', 'auto_diary_index': 1, 'syntax': 'markdown', 'ext': '.md'}]
 	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex

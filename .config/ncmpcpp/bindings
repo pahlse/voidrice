@@ -177,12 +177,12 @@
 #def_key "backspace"
 #  replay_song
 #
-#def_key "f"
-#  seek_forward
-#
-#def_key "b"
-#  seek_backward
-#
+def_key "f"
+  seek_forward
+
+def_key "b"
+  seek_backward
+
 #def_key "r"
 #  toggle_repeat
 #
@@ -401,7 +401,7 @@
 #	find
 #def_key "f"
 #	find_item_forward
-
+#
 def_key "+"
     show_clock
 def_key "="
@@ -450,28 +450,26 @@ def_key "l"
   run_action
 def_key "l"
   play_item
-def_key "m"
+def_key "M"
   show_media_library
-def_key "m"
+def_key "M"
   toggle_media_library_columns_mode
-def_key "t"
+def_key "T"
   show_tag_editor
-def_key "v"
+def_key "V"
   show_visualizer
 def_key "G"
-  move_end
-def_key "g"
   move_home
 #jump_to_position_in_song
 def_key "U"
   update_database
-def_key "s"
+def_key "S"
   reset_search_engine
-def_key "s"
+def_key "S"
   show_search_engine
-def_key "f"
+def_key "F"
   show_browser
-def_key "f"
+def_key "F"
   change_browse_mode
 def_key "x"
   delete_playlist_items

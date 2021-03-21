@@ -4,13 +4,15 @@
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
 mpd &			# music player daemon-you might prefer it as a service though
+setxkbmap ch &		# set keyboard layout to de_CH-latin1
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 setbg &			# set the background with the `setbg` script
-#xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
-xset r rate 300 50 &	# Speed xrate up
 unclutter &		# Remove mouse when idle
+
+#xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
+#xset r rate 300 50 &	# Speed xrate up --> allready in remaps script
 
 # This line autostarts an instance of Pulseaudio that does not exit on idle.
 # This is "necessary" on Artix due to a current bug between PA and

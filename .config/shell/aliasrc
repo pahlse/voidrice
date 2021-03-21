@@ -1,17 +1,29 @@
 #!/bin/sh
 
 # Use neovim for vim if present.
-[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+
+# Wine Game launchers
+
+alias \
+	kam="setsid -f wine ~/.local/share/Steam/steamapps/common/Knights\ and\ Merchants\ Historical\ Version/Game/KAMRemake/KaM_Remake.exe"\
+	aoe2=" wine ~/.local/share/Steam/steamapps/common/AoE2DE/AoE2DE_s.exe"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
+        dic="dict -d"\
+	R="R --quiet" \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	mkd="mkdir -pv" \
-	yt="youtube-dl --add-metadata -i" \
-	yta="yt -x -f bestaudio/best" \
-	ffmpeg="ffmpeg -hide_banner"
+	yt="youtube-dl -f bestvideo+bestaudio --add-metadata --write-sub --embed-subs -i" \
+	yta="yt -x -f bestaudio" \
+	ytp="yt -x --audio-format opus" \
+	ffmpeg="ffmpeg -hide_banner" \
+	combine="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=finished.pdf " \
+	mmkv="sudo modprobe sg && makemkv" \
+	ej="eject -T"
 
 # Colorize commands when possible.
 alias \
@@ -22,6 +34,10 @@ alias \
 
 # These common commands are just too long! Abbreviate them.
 alias \
+	d1="du -d 1 -h" \
+	d2="du -d 2 -h" \
+	d3="du -d 3 -h" \
+	d4="du -d 4 -h" \
 	ka="killall" \
 	g="git" \
 	trem="transmission-remote" \
@@ -34,9 +50,12 @@ alias \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
-	z="zathura"
+	z="zathura" \
+	lrc="sudo /usr/bin/rsync -aAXv --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/lost+found','/home/elias/*'} --log-file=/tmp/rsync.pahlse.system.log -e ssh / root@192.168.1.20:/volume1/home/pahlse/linux.system/" \
+	urc="sudo /usr/bin/rsync -aAXv --delete --exclude={,'/home/*/.thumbnails/','/home/*/.config/BraveSoftware/*','/home/*/.cache/BraveSoftware/*','/home/*/*/whatsapp-nativefier*/','/home/*/*/TelegramDesktop/'} --log-file=/tmp/rsync.pahlse.shared.log -e ssh /home/elias/ root@192.168.1.20:/volume1/home/pahlse/linux.user/"
 
 alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \

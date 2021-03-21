@@ -42,7 +42,8 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/weechat"
 
 # Other program settings:
-export DICS="/usr/share/stardict/dic/"
+export BIB="$HOME/texmf/bibtex/bib/local/eth.bib"
+export DICS="/usr/share/dictd/"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export LESS=-R

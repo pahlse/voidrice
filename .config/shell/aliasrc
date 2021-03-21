@@ -9,6 +9,14 @@ alias \
 	kam="setsid -f wine ~/.local/share/Steam/steamapps/common/Knights\ and\ Merchants\ Historical\ Version/Game/KAMRemake/KaM_Remake.exe"\
 	aoe2=" wine ~/.local/share/Steam/steamapps/common/AoE2DE/AoE2DE_s.exe"
 
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# sudo not required for some system commands
+for x in mount umount sv pacman updatedb su ; do
+	alias $x="sudo $x"
+done
+
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
         dic="dict -d"\
@@ -16,6 +24,7 @@ alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
+	bc="bc -ql" \
 	mkd="mkdir -pv" \
 	yt="youtube-dl -f bestvideo+bestaudio --add-metadata --write-sub --embed-subs -i" \
 	yta="yt -x -f bestaudio" \
@@ -43,7 +52,6 @@ alias \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
-	f="$FILE" \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="sudo pacman" \

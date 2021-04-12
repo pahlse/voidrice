@@ -6,20 +6,21 @@ dt  ${XDG_DATA_HOME:-$HOME/.local/share}
 h   $HOME
 dd  ${XDG_DOWNLOAD_DIR:-$HOME/downloads}
 prv ${XDG_DOCUMENTS_DIR:-$HOME/docs/private}
-eth ${XDG_DOCUMENTS_DIR:-$HOME/docs/eth/6.semester}
-ag  ${XDG_DOCUMENTS_DIR:-$HOME/docs/eth/agora}
-ofc ${XDG_DOCUMENTS_DIR:-$HOME/docs/office}
+eth ${XDG_DOCUMENTS_DIR:-$HOME/docs/eth}
+ww  ${XDG_DOCUMENTS_DIR:-$HOME/docs/work}
 mm  ${XDG_MUSIC_DIR:-$HOME/audio/music}
 pd  ${XDG_MUSIC_DIR:-$HOME/audio/podcasts}
 ab  ${XDG_MUSIC_DIR:-$HOME/audio/abooks}
 pp  ${XDG_PICTURES_DIR:-$HOME/pics}
 vv  ${XDG_VIDEOS_DIR:-$HOME/videos}
+lb  ${XDG_VIDEOS_DIR:-$HOME/library}
+gt  ${XDG_VIDEOS_DIR:-$HOME/git}
 
 mn  /mnt
 hdd /mnt/hdd
 and /mnt/android
-usb /mnt/usb
-msh /mnt/ssh
+usb1 /mnt/usb1
+usb2 /mnt/usb2
 
 sc  $HOME/.local/bin
 src $HOME/.local/src

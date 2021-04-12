@@ -1,7 +1,14 @@
 #!/bin/bash
 
 
-ls | while read -r FILE
-do
-	mv -v "$FILE" `echo $FILE | iconv -cf UTF-8 -t ASCII//TRANSLIT | sed 's/ - /./g' | tr ' ' '.' | tr '_' '.' | tr -d '[:!?,/\"(){}[]^*]' | tr -d "\'"`
-done
+find . \( -name '* *' -or -name '*_*' -or -name '*&*' -or -name '*..*' -or -name '.*' -or -name '*.-.*' \) -execdir sh -c 'mv -v "$1" "$(echo "$1" \
+	| tr -d "{()},\!'\''" \
+	| sed -r "s/[ _.]+/./g" \
+	| sed -r "s/^.\/\./.\//g" \
+	| sed -r "s/\.\-\././g" \
+	| sed -r "s/\-\././g" \
+	| sed -r "s/\.\-/./g" \
+	| sed "s/&/und/g")"' \
+_ {} \;
+
+find . \( -name '.*' \) -execdir sh 'mv -v "$1" "${1#.}"' _ {} \;

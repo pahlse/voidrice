@@ -78,6 +78,7 @@ _comps=(
 'base64' '_base64'
 'basename' '_basename'
 'bash' '_bash'
+'bat' '_bat'
 'batch' '_at'
 'baz' '_baz'
 'beep' '_beep'
@@ -363,7 +364,6 @@ _comps=(
 'fwhois' '_whois'
 'g++' '_gcc'
 'galeon' '_webbrowser'
-'gallery-dl' '_gallery-dl'
 'gawk' '_awk'
 'gb2sum' '_md5sum'
 'gbase32' '_base64'
@@ -1626,8 +1626,8 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _beet _bluetoothctl _bootctl _busctl _coredumpctl \
-            _curl _email-notmuch _gallery-dl _hostnamectl _journalctl \
+autoload -Uz _bat _beet _bluetoothctl _bootctl _busctl \
+            _coredumpctl _curl _email-notmuch _hostnamectl _journalctl \
             _kernel-install _libinput _localectl _loginctl _machinectl \
             _mkinitcpio _mpv _netctl _networkctl _notmuch \
             _pacman _pass _pulseaudio _qpdf _resolvectl \

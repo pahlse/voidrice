@@ -3,12 +3,6 @@
 # Use neovim for vim if present.
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
-# Wine Game launchers
-
-alias \
-	kam="setsid -f wine ~/.local/share/Steam/steamapps/common/Knights\ and\ Merchants\ Historical\ Version/Game/KAMRemake/KaM_Remake.exe"\
-	aoe2=" wine ~/.local/share/Steam/steamapps/common/AoE2DE/AoE2DE_s.exe"
-
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
@@ -59,6 +53,7 @@ alias \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
 	z="zathura" \
+	l="libreoffice" \
 	lrc="sudo /usr/bin/rsync -aAXv --delete --exclude={'/dev/*','/proc/*','/sys/*','/tmp/*','/run/*','/mnt/*','/lost+found','/home/elias/*'} --log-file=/tmp/rsync.pahlse.system.log -e ssh / root@192.168.1.20:/volume1/home/pahlse/linux.system/" \
 	urc="sudo /usr/bin/rsync -aAXv --delete --exclude={,'/home/*/.thumbnails/','/home/*/.config/BraveSoftware/*','/home/*/.cache/BraveSoftware/*','/home/*/*/whatsapp-nativefier*/','/home/*/*/TelegramDesktop/'} --log-file=/tmp/rsync.pahlse.shared.log -e ssh /home/elias/ root@192.168.1.20:/volume1/home/pahlse/linux.user/"
 

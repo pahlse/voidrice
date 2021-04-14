@@ -26,7 +26,8 @@ alias \
 	ffmpeg="ffmpeg -hide_banner" \
 	combine="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=finished.pdf " \
 	mmkv="sudo modprobe sg && makemkv" \
-	ej="eject -T"
+	ej="eject -T"\
+	soffice="soffice --headless --convert-to pdf"
 
 # Colorize commands when possible.
 alias \

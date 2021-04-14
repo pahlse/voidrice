@@ -5,7 +5,6 @@
 
 setbg &			# set the background with the `setbg` script
 mpd &			# music player daemon-you might prefer it as a service though
-setxkbmap ch &		# set keyboard layout to de_CH-latin1
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications

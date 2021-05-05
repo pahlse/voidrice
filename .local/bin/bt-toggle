@@ -9,4 +9,4 @@ else
 	ifinstalled bluez || exit
 	sudo systemctl start bluetooth.service && notify-send "bluetooth enabled."
 fi
-sleep 3 && pkill -RTMIN+7 "${STATUSBAR:-dwmblocks}"
+sleep 1 && pkill -RTMIN+7 "${STATUSBAR:-dwmblocks}"

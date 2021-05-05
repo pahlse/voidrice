@@ -44,6 +44,7 @@ map r rotate
 map K zoom in
 map _ zoom in
 map J zoom out
+map - zoom out
 map i recolor
 set recolor                     false
 map p print

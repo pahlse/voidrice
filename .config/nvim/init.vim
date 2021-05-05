@@ -78,6 +78,15 @@ set noshowcmd
 	map <leader>tj :tabn<cr>        " To swtich to next tab.
 	map <leader>tk :tabp<cr>        " To switch to previous tab.
 
+" NVIM-R
+let maplocalleader = ','
+let g:rout_follow_colorscheme = 1
+let g:Rout_more_colors = 1
+let R_objbr_place = 'console,above'
+let R_objbr_h = 20
+let R_openpdf = 1
+let R_pdfviewer = 'zathura'
+
 " NCM2
 autocmd BufEnter * call ncm2#enable_for_buffer()    " To enable ncm2 for all buffers.
 set completeopt=noinsert,menuone,noselect           " :help Ncm2PopupOpen for more information.
@@ -143,7 +152,7 @@ let g:UltiSnipsEditSplit="vertical"  " If you want :UltiSnipsEdit to split your 
 
 " Open my bibliography file in split
 	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
+"	map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>

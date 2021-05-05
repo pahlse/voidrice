@@ -3,7 +3,7 @@
 # Status bar module for disk space
 # $1 should be drive mountpoint, otherwise assumed /.
 
-location=${1:-/}
+location="$(mount -l | awk '/mnt/ {print $3}')"
 
 [ -d "$location" ] || exit
 
@@ -15,9 +15,9 @@ case $BLOCK_BUTTON in
 esac
 
 case "$location" in
-	"/home"* ) icon="🏠" ;;
-	"/mnt"* ) icon="💾" ;;
-	*) icon="🖥";;
+	"/mnt/hdd"* ) icon="💽" ;;
+	"/mnt/usb2"* ) icon="💾" ;;
+	"/mnt/usb1"* ) icon="💾" ;;
 esac
 
-printf "%s: %s\n" "$icon" "$(df -h "$location" | awk ' /[0-9]/ {print $3 "/" $2}')"
+printf "%s%s\n" "$icon" "$(df -h "$location" | awk ' /[0-9]/ {print $3 "/" $2}')"
